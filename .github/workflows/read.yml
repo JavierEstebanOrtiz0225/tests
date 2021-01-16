@@ -1,5 +1,11 @@
 name: Read to artifacts
-on: push
+on: 
+  workflow_dispatch:
+    inputs:
+      ms-test:
+        description: 'Input test'     
+        required: true
+        default: 'be_entity'
 jobs:
   job_1:
     runs-on: ubuntu-latest
@@ -11,12 +17,13 @@ jobs:
         node-version: '12'
     - name: Node init
       run: |
-        ls
-        node generator/index.js
+        echo ${{toJson(github)}}
+      
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
         name: my-artifact
         path: |
           files/*.json
+
 

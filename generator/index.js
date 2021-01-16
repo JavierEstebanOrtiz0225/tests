@@ -1,7 +1,14 @@
-let fs = require('fs')
+let fs = require('fs');
 
-let json = {"name":"hola","type":"prueba"}
-for (let index = 0; index < 10; index++) {
-    fs.writeFileSync(`./files/${index}.json`,JSON.stringify(json))
-    
+
+function loadMicroservices(string=''){
+
+    return string.split('-');
+
 }
+
+loadMicroservices(process.env.MICROSERVICES).forEach((microservice,index)=>{
+    let json = {"name":microservice,"position":index}
+    fs.writeFileSync(`./files/${microservice}.json`,JSON.stringify(json))
+
+})
