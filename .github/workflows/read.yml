@@ -2,9 +2,13 @@ name: Read to artifacts
 on: push
 jobs:
   job_1:
-      runs-on: ubuntu
-    - name: Checkout repository
-      use: action/checkout@v2
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '12'
     - name: Node init
       run: |
         node /generator/index.js
