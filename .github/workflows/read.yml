@@ -11,7 +11,7 @@ jobs:
         node-version: '12'
     - name: Node init
       run: |
-        node /generator/index.js
+        node generator/index.js
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
