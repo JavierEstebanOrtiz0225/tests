@@ -16,7 +16,7 @@ jobs:
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: dist-without-markdown
+        name: my-artifact
         path: |
           generator/*.json
     - name: Download a single artifact
