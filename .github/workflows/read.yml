@@ -2,7 +2,7 @@ name: Read to artifacts
 on: 
   workflow_dispatch:
     inputs:
-      ms-test:
+      ms_test:
         description: 'Input test'     
         required: true
         default: 'be_entity'
@@ -17,7 +17,9 @@ jobs:
         node-version: '12'
     - name: Node init
       run: |
-        echo ${{toJson(github)}}
+        node generator/index.json
+      env:
+        MICROSERVICES: ${{github.event.inputs.ms_test}}
       
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
