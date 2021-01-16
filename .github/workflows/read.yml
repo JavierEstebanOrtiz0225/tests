@@ -17,7 +17,7 @@ jobs:
         node-version: '12'
     - name: Node init
       run: |
-        node generator/index.json
+        node generator/index.js
       env:
         MICROSERVICES: ${{github.event.inputs.ms_test}}
       
