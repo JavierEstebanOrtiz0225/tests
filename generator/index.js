@@ -2,6 +2,6 @@ let fs = require('fs')
 
 let json = {"name":"hola","type":"prueba"}
 for (let index = 0; index < 10; index++) {
-    fs.writeFileSync(`./${index}.json`,JSON.stringify(json))
+    fs.writeFileSync(`./files/${index}.json`,JSON.stringify(json))
     
 }
