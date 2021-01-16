@@ -2,7 +2,7 @@ name: Read to artifacts
 on: push
 jobs:
   job_1:
-      run-on: ubuntu
+      runs-on: ubuntu
     - name: Checkout repository
       use: action/checkout@v2
     - name: Node init
